@@ -1,0 +1,48 @@
+<section class="text-lime-50 flex justify-around items-center">
+  <div class="configuration">
+    <form [formGroup]="configForm" class="card">
+      <div class="mb-2">
+        <label class="input-label"> Tiles</label>
+        <input formControlName="tile" class="input-control" type="text">
+      </div>
+      <div class="mb-2">
+        <label class="input-label"> X Position</label>
+        <input formControlName="xPosition" class="input-control" type="number">
+      </div>
+      <div class="mb-2">
+        <label class="input-label"> Y Position </label>
+        <input formControlName="yPosition" class="input-control" type="number">
+      </div>
+      <div class="mb-5">
+        <label class="input-label"> Direction </label>
+        <select formControlName="direction" class="input-control">
+          <option *ngFor="let dir of directions" [value]="dir">
+            {{ dir }}
+          </option>
+        </select>
+      </div>
+      <button (click)="start()" class="start-btn" type="button"> Start </button>
+    </form>
+  </div>
+  <div class="game-section">
+    <h3 class="text-3xl py-10">Car Simulation</h3>
+    <div [style.grid-template-columns]="gridColumn" class="grid-container">
+      <div *ngFor="let tile of tiles; let i = index" [ngClass]="{'north': (direction === 'North' && tile.row === carPosition.row && tile.column === carPosition.column),
+             'east': (direction === 'East' && tile.row === carPosition.row && tile.column === carPosition.column),
+              'west': (direction === 'West' && tile.row === carPosition.row && tile.column === carPosition.column),
+               'south': (direction === 'South' && tile.row === carPosition.row && tile.column === carPosition.column)}"
+        [class.car]="(tile.row === carPosition.row && tile.column === carPosition.column)"></div>
+    </div>
+    <div class="controls">
+      <button class="bg-slate-400 rounded button" (click)="rotateLeft()">Rotate Left (L)</button>
+      <button class="bg-slate-400 rounded button" (click)="moveForward()">Move Forward (F)</button>
+      <button class="bg-slate-400 rounded button" (click)="rotateRight()">Rotate Right (R)</button>
+    </div>
+  </div>
+
+  <div class="info">
+    <p>Current Position: {{ carPosition.column }}, {{ carPosition.row }}</p>
+    <p>Current Direction: {{ direction }}</p>
+  </div>
+
+</section>

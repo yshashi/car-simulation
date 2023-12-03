@@ -1,0 +1,47 @@
+<div class="flex p-5 justify-around">
+  <section class="card p-3 bg-opacity-80 w-1/2">
+    <h2 class="text-4xl text-center">Auto Driving Car Simulation</h2>
+    <p><br></p>
+    <p>You're working on a brand new auto driving car to compete against Tesla. You've already gotten the prototype car
+      working but rather primitively.</p>
+    <p><br></p>
+    <p>You're testing your prototype on a large rectangular field, with coordinates denoting the position on that field.
+      Based on the coordinates, the bottom left position is denoted (0, 0), and the top right position is denoted
+      (width,
+      height).</p>
+    <p><br></p>
+    <p>At this moment, it can only follow these commands:</p>
+    <p>- L: rotates the car by 90 degrees to the left</p>
+    <p>- R: rotates the car by 90 degrees to the right</p>
+    <p>- F: moves forward by 1 grid point</p>
+    <p><br></p>
+    <p>At the same time, the car has a facing direction, which follows the usual map convention. So for a car at
+      position
+      (1,2) facing North and moves forward by 1 grid point, it'll end up at (1, 3), still facing North.</p>
+    <p><br></p>
+    <p>Sample Input</p>
+    <p>Your sample input consists of 3 lines. The first line indicates the width and height of the field. The second
+      line
+      indicates the current position and facing direction of the car. The last line shows the subsequent commands it
+      will
+      execute. For example:</p>
+    <p><br></p>
+    <pre>10 10 1 2 N <br>FFRFFFRRLF
+  </pre>
+    <p>To interpret the input above: the field is 10 by 10 in size; hence, the upper right coordinate is (9,
+      9). The car is at position (1,
+      2) facing North and executes these steps `FFRFFFRRLF` sequentially. So where would the car end up? What direction
+      will
+      it be facing?</p>
+    <p><br></p>
+    <p>If the car tries to go out of the boundary, that command is ignored. For example, for a car at (0,
+      0) facing South, when it receives an F command to move forward, the command is ignored, as otherwise, the car will
+      move outside of the boundary.</p>
+    <p><br></p>
+    <p>Sample Output</p>
+    <p>Based on the sample input above, the output would be:</p>
+    <pre class="ql-syntax" spellcheck="false">4 3 S
+  </pre>
+  </section>
+  <app-tech-stack-used />
+</div>
